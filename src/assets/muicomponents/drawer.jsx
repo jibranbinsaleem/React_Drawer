@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
+import logo from '../images/no_bg_logo.png'
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -30,36 +31,26 @@ export default function TemporaryDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width:2 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      
     >
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <MailIcon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      
     </Box>
   );
 
@@ -69,7 +60,9 @@ export default function TemporaryDrawer() {
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}><MenuIcon style={{fill: "#0c1a40"}} fontSize="large"/></Button>
           <Drawer
-            
+            PaperProps={{
+              sx: { height: "50%" , marginTop:20, borderRadius: 2, width:"6%"},
+            }}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
           >
