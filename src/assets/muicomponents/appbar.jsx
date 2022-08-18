@@ -8,6 +8,7 @@ import Logo from "../images/no_bg_logo.png"
 import Link from '@mui/material/Link';
 import { maxWidth } from '@mui/system';
 import arabic from "../images/arabic.png"
+import logout from "../images/logout.png"
 
 
 export default function ButtonAppBar() {
@@ -50,7 +51,19 @@ export default function ButtonAppBar() {
             alt="Your logo."
             src={arabic}
         />   
-          <Button color="inherit">Login</Button>
+        <Typography> 
+          
+        </Typography>
+          <Box
+            component="img"
+            sx={{
+            
+            height: 34,
+            
+            }}
+            alt="Your logo."
+            src={logout}
+        />
         </Toolbar>
       </AppBar>
     </Box>

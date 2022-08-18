@@ -126,6 +126,7 @@ export default function TemporaryDrawer() {
             }}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
+            dir = "rtl"
           >
             {list(anchor)}
           </Drawer>
