@@ -7,12 +7,13 @@ import Button from '@mui/material/Button';
 import Logo from "../images/no_bg_logo.png"
 import Link from '@mui/material/Link';
 import { maxWidth } from '@mui/system';
+import arabic from "../images/arabic.png"
 
 
 export default function ButtonAppBar() {
  
     const toolbarStyle = {
-        minHeight: '30px',
+        minHeight: '44px',
       };  
 
   return (
@@ -21,7 +22,7 @@ export default function ButtonAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" >
         <Toolbar
-        sx={{background: '#0c1a40', height : 20}}
+        sx={{background: '#0D7E8A', height : 30}}
         style={toolbarStyle}>
 
           {/* <Box sx={{flexGrow:1}} >
@@ -39,6 +40,16 @@ export default function ButtonAppBar() {
             src={Logo}
         />   
         </Box>
+        <Box
+            component="img"
+            sx={{
+            
+            height: 34,
+            
+            }}
+            alt="Your logo."
+            src={arabic}
+        />   
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
