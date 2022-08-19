@@ -11,7 +11,7 @@ import arabic from "../images/arabic.png"
 import logout from "../images/logout.png"
 
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar( {changelang} ) {
  
     const toolbarStyle = {
         minHeight: '44px',
@@ -37,10 +37,15 @@ export default function ButtonAppBar() {
             height: 44,
             
             }}
-            alt="Your logo."
+            alt="Eaxee logo."
             src={Logo}
         />   
         </Box>
+        <Button 
+        onClick={changelang}
+        >
+
+        
         <Box
             component="img"
             sx={{
@@ -48,9 +53,10 @@ export default function ButtonAppBar() {
             height: 34,
             
             }}
-            alt="Your logo."
+            alt="Change Language"
             src={arabic}
         />   
+        </Button>
         <Typography> 
           
         </Typography>
@@ -61,7 +67,7 @@ export default function ButtonAppBar() {
             height: 34,
             
             }}
-            alt="Your logo."
+            alt="Logout"
             src={logout}
         />
         </Toolbar>

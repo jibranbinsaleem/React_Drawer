@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
@@ -8,16 +9,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import logo from '../images/no_bg_logo.png'
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import settings from '../images/settings.png'
 import impex from "../images/impex.png"
 import analysis from "../images/analysis.webp"
 import ea from "../images/EnterpriseArchitecture.svg"
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer ( {lang} ) {
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -36,8 +34,8 @@ export default function TemporaryDrawer() {
   const data =[{"text":"Eaxee Administration", "icon":"<ManageAccountsIcon />"},{"text":"impex", "icon":"<ManageAccountsIcon />"}]
   const list = (anchor) => (
     <Box
-      sx={{ width:25}}
-      role="presentation"
+
+
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
       
@@ -45,16 +43,7 @@ export default function TemporaryDrawer() {
       <List>
         
           <ListItem>
-            <ListItemButton>
-              <ListItemIcon>
-              <ManageAccountsIcon fontSize='large'/>
-              </ListItemIcon>
-              
-            </ListItemButton>
-            
-          </ListItem>
-          <Divider />
-          <ListItem >
+          <Tooltip title="Eaxee Administration" placement="right">
             <ListItemButton>
               <ListItemIcon>
               <Box
@@ -64,15 +53,40 @@ export default function TemporaryDrawer() {
             height: 33,
             
             }}
-            alt="Your logo."
+            alt="Account management"
+            src={settings}
+        /> 
+        
+
+              </ListItemIcon>
+              
+            </ListItemButton>
+            </Tooltip>
+            
+          </ListItem>
+          <Divider />
+          <ListItem >
+          <Tooltip title="Eaxee Impex" placement="right">
+            <ListItemButton>
+              <ListItemIcon>
+              <Box
+            component="img"
+            sx={{
+            
+            height: 33,
+            
+            }}
+            alt="Eaxee Impex"
             src={impex}
         /> 
               </ListItemIcon>
               
             </ListItemButton>
-            
+            </Tooltip>
           </ListItem>
+          <Divider />
           <ListItem>
+          <Tooltip title="Eaxee Enterprise Architecture" placement="right">
             <ListItemButton>
               <ListItemIcon>
               <Box
@@ -82,15 +96,17 @@ export default function TemporaryDrawer() {
             height: 33,
             
             }}
-            alt="Your logo."
+            alt="Eaxee Enterprise Architecture"
             src={ea}
         /> 
               </ListItemIcon>
               
             </ListItemButton>
-            
+            </Tooltip>
           </ListItem>
+          <Divider />
           <ListItem>
+          <Tooltip title="Eaxee Organization Portal" placement="right">
             <ListItemButton>
               <ListItemIcon>
               <Box
@@ -100,14 +116,16 @@ export default function TemporaryDrawer() {
             height: 33,
             
             }}
-            alt="Your logo."
+            alt="Analysis"
             src={analysis}
         /> 
               </ListItemIcon>
               
             </ListItemButton>
-            
+            </Tooltip>
           </ListItem>
+          <Divider />
+
           
       </List>
 
@@ -126,7 +144,7 @@ export default function TemporaryDrawer() {
             }}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            dir = "rtl"
+            anchor = { lang === 'en' ? 'left' : 'right' }
           >
             {list(anchor)}
           </Drawer>
