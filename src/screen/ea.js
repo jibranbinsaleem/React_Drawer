@@ -1,12 +1,15 @@
 import React from 'react'
-import UnstyledTabsBasic from '../assets/muicomponents/tabs'
+import BasicTabs from '../assets/muicomponents/tabs'
+
 
 const Ea = () => {
   return (
 
 
     <div>
-        <UnstyledTabsBasic />
+        <BasicTabs />
+
+
         
     </div>
   
