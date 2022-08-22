@@ -14,8 +14,10 @@ import settings from '../images/settings.png'
 import impex from "../images/impex.png"
 import analysis from "../images/analysis.webp"
 import ea from "../images/EnterpriseArchitecture.svg"
+import { Link } from "react-router-dom"
+import './styles/drawer.css'
 
-export default function TemporaryDrawer ( {lang} ) {
+export default function TemporaryDrawer ( props ) {
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -31,7 +33,9 @@ export default function TemporaryDrawer ( {lang} ) {
     setState({ ...state, [anchor]: open });
   };
 
-  const data =[{"text":"Eaxee Administration", "icon":"<ManageAccountsIcon />"},{"text":"impex", "icon":"<ManageAccountsIcon />"}]
+  
+
+
   const list = (anchor) => (
     <Box
 
@@ -44,8 +48,9 @@ export default function TemporaryDrawer ( {lang} ) {
         
           <ListItem>
           <Tooltip title="Eaxee Administration" placement="right">
-            <ListItemButton>
-              <ListItemIcon>
+           <Link to="admin">
+      <ListItemButton >
+          <ListItemIcon>
               <Box
             component="img"
             sx={{
@@ -55,18 +60,23 @@ export default function TemporaryDrawer ( {lang} ) {
             }}
             alt="Account management"
             src={settings}
+            onClick={() => props.changepage("Eaxee Administration")}
+            
         /> 
         
 
               </ListItemIcon>
               
             </ListItemButton>
+            </Link>
+         
             </Tooltip>
             
           </ListItem>
           <Divider />
           <ListItem >
           <Tooltip title="Eaxee Impex" placement="right">
+            <Link to="impex">
             <ListItemButton>
               <ListItemIcon>
               <Box
@@ -78,15 +88,19 @@ export default function TemporaryDrawer ( {lang} ) {
             }}
             alt="Eaxee Impex"
             src={impex}
+            onClick={() => props.changepage("Eaxee Impex")}
         /> 
               </ListItemIcon>
               
             </ListItemButton>
+            </Link>
             </Tooltip>
           </ListItem>
           <Divider />
+
           <ListItem>
           <Tooltip title="Eaxee Enterprise Architecture" placement="right">
+            <Link to ="enterprise">
             <ListItemButton>
               <ListItemIcon>
               <Box
@@ -98,16 +112,20 @@ export default function TemporaryDrawer ( {lang} ) {
             }}
             alt="Eaxee Enterprise Architecture"
             src={ea}
+            onClick={() => props.changepage("Eaxee Enterprise Architecture")}
         /> 
               </ListItemIcon>
               
             </ListItemButton>
+            </Link>
             </Tooltip>
           </ListItem>
+
           <Divider />
           <ListItem>
           <Tooltip title="Eaxee Organization Portal" placement="right">
-            <ListItemButton>
+          <Link to="portal">
+            <ListItemButton >
               <ListItemIcon>
               <Box
             component="img"
@@ -118,10 +136,12 @@ export default function TemporaryDrawer ( {lang} ) {
             }}
             alt="Analysis"
             src={analysis}
+            onClick={() => props.changepage("Eaxee Organization Portal")}
         /> 
               </ListItemIcon>
               
             </ListItemButton>
+            </Link>
             </Tooltip>
           </ListItem>
           <Divider />
@@ -137,14 +157,19 @@ export default function TemporaryDrawer ( {lang} ) {
     <div>
       {['OPEN'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}><MenuIcon style={{fill: "#0D7E8A"}} fontSize="large"/></Button>
+          <div className='flex-container'>
+          <Button onClick={toggleDrawer(anchor, true)} >
+            <MenuIcon style={{fill: "#0D7E8A"}} fontSize="large"/>
+            </Button>
+   
+            </div>
           <Drawer
             PaperProps={{
-              sx: { background: '#0D7E8A', height: "50%" , marginTop:20, borderRadius: 2, width:"6%"},
+              sx: { background: '#0D7E8A', height: "50%" , marginTop:20, borderRadius: 2, width:"7%"},
             }}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            anchor = { lang === 'en' ? 'left' : 'right' }
+            anchor = { props.lang === 'en' ? 'left' : 'right' }
           >
             {list(anchor)}
           </Drawer>
