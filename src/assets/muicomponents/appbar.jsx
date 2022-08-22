@@ -10,7 +10,7 @@ import arabic from "../images/arabic.png"
 import logout from "../images/logout.png"
 import { Link } from "react-router-dom"
 import  '../muicomponents/styles/appbar.css'
-
+import MenuIcon from '@mui/icons-material/Menu';
 
 export default function ButtonAppBar( props ) {
  
@@ -32,7 +32,9 @@ export default function ButtonAppBar( props ) {
            </Box> */}
 
          
-           
+          <Button onClick={props.toggleDrawer('left', true)} >
+            <MenuIcon style={{fill: "#000000"}} fontSize="large"/>
+            </Button>
             <Link to="/">
           <Box
             component="img"

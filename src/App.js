@@ -30,6 +30,23 @@ function App() {
     setPage(text)
   };
 
+  const [drawer, setDrawer] = useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    
+    setDrawer({ ...drawer, [anchor]: open });
+    console.log(drawer)
+  };
+
   return (
  
 
@@ -40,8 +57,8 @@ function App() {
           dir: lang === 'en' ? 'ltr' : 'rtl'
         }} />
 
-      <ButtonAppBar changelang={changelang} text={Page}/>
-      <TemporaryDrawer lang={lang}  changepage = {changepage}/>
+      <ButtonAppBar changelang={changelang} text={Page} toggleDrawer = {toggleDrawer}/>
+      <TemporaryDrawer lang={lang}  changepage = {changepage} state={drawer} toggleDrawer = {toggleDrawer} />
       
       <Routes>
         <Route path="/" element={<Home />} />

@@ -18,30 +18,13 @@ import { Link } from "react-router-dom"
 import './styles/drawer.css'
 
 export default function TemporaryDrawer ( props ) {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  
-
 
   const list = (anchor) => (
     <Box
 
 
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={props.toggleDrawer(anchor, false)}
+      onKeyDown={props.toggleDrawer(anchor, false)}
       
     >
       <List>
@@ -49,7 +32,7 @@ export default function TemporaryDrawer ( props ) {
           <ListItem>
           <Tooltip title="Eaxee Administration" placement="right">
            <Link to="admin">
-      <ListItemButton >
+      <ListItemButton onClick={() => props.changepage("Eaxee Administration")}>
           <ListItemIcon>
               <Box
             component="img"
@@ -60,7 +43,7 @@ export default function TemporaryDrawer ( props ) {
             }}
             alt="Account management"
             src={settings}
-            onClick={() => props.changepage("Eaxee Administration")}
+            
             
         /> 
         
@@ -74,7 +57,7 @@ export default function TemporaryDrawer ( props ) {
             
           </ListItem>
           <Divider />
-          <ListItem >
+          <ListItem onClick={() => props.changepage("Eaxee Impex")}>
           <Tooltip title="Eaxee Impex" placement="right">
             <Link to="impex">
             <ListItemButton>
@@ -88,7 +71,7 @@ export default function TemporaryDrawer ( props ) {
             }}
             alt="Eaxee Impex"
             src={impex}
-            onClick={() => props.changepage("Eaxee Impex")}
+           
         /> 
               </ListItemIcon>
               
@@ -101,7 +84,7 @@ export default function TemporaryDrawer ( props ) {
           <ListItem>
           <Tooltip title="Eaxee Enterprise Architecture" placement="right">
             <Link to ="enterprise">
-            <ListItemButton>
+            <ListItemButton onClick={() => props.changepage("Eaxee Enterprise Architecture")}>
               <ListItemIcon>
               <Box
             component="img"
@@ -112,7 +95,7 @@ export default function TemporaryDrawer ( props ) {
             }}
             alt="Eaxee Enterprise Architecture"
             src={ea}
-            onClick={() => props.changepage("Eaxee Enterprise Architecture")}
+            
         /> 
               </ListItemIcon>
               
@@ -125,7 +108,7 @@ export default function TemporaryDrawer ( props ) {
           <ListItem>
           <Tooltip title="Eaxee Organization Portal" placement="right">
           <Link to="portal">
-            <ListItemButton >
+            <ListItemButton onClick={() => props.changepage("Eaxee Organization Portal")}>
               <ListItemIcon>
               <Box
             component="img"
@@ -136,7 +119,7 @@ export default function TemporaryDrawer ( props ) {
             }}
             alt="Analysis"
             src={analysis}
-            onClick={() => props.changepage("Eaxee Organization Portal")}
+            
         /> 
               </ListItemIcon>
               
@@ -155,20 +138,21 @@ export default function TemporaryDrawer ( props ) {
 
   return (
     <div>
-      {['OPEN'].map((anchor) => (
+      {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           <div className='flex-container'>
-          <Button onClick={toggleDrawer(anchor, true)} >
-            <MenuIcon style={{fill: "#0D7E8A"}} fontSize="large"/>
-            </Button>
+          
    
             </div>
+
           <Drawer
             PaperProps={{
               sx: { background: '#0D7E8A', height: "50%" , marginTop:20, borderRadius: 2, width:"7%"},
             }}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
+            
+            open={props.state[anchor]}
+
+            onClose={props.toggleDrawer(anchor, false)}
             anchor = { props.lang === 'en' ? 'left' : 'right' }
           >
             {list(anchor)}
