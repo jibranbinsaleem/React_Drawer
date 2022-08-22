@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Logo from "../images/no_bg_logo.png"
-import { maxWidth } from '@mui/system';
+import { flexbox, maxWidth } from '@mui/system';
 import arabic from "../images/arabic.png"
 import logout from "../images/logout.png"
 import { Link } from "react-router-dom"
@@ -18,13 +18,13 @@ export default function ButtonAppBar( props ) {
         minHeight: '44px',
       };  
 
-  return (
+  return ( 
     
       
     <Box>
       <AppBar position="static" >
         <Toolbar
-        sx={{background: '#0D7E8A', height : 30}}
+        sx={{background: '#0D7E8A', height : 30, display: "flexbox", alignContent: 'center'}}
         style={toolbarStyle}>
 
           {/* <Box sx={{flexGrow:1}} >
@@ -33,22 +33,18 @@ export default function ButtonAppBar( props ) {
 
          
           <Button onClick={props.toggleDrawer('left', true)} >
-            <MenuIcon style={{fill: "#000000"}} fontSize="large"/>
+            <MenuIcon style={{fill: "#000000", marginLeft:"-55px" }} fontSize="large" />
             </Button>
             <Link to="/">
           <Box
             component="img"
-            sx={{
-            
-            height: 44,
-            
-            }}
+            sx={{height: 44, marginLeft:"-30px"}}
             alt="Eaxee logo."
             src={Logo}
         />   
         </Link>
-        <Box sx={{flexGrow:1}}>
-         <Typography> 
+        <Box sx={{flexGrow:1, marginLeft:"7px", marginTop:"10px"}}>
+         <Typography sx={{fontSize:"20px"}}> 
           {props.text}
         </Typography>
         </Box>
@@ -56,9 +52,7 @@ export default function ButtonAppBar( props ) {
 
         <Button 
         onClick={props.changelang}
-        >
-
-        
+        >        
         <Box
             component="img"
             sx={{

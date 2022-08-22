@@ -32,7 +32,7 @@ export default function TemporaryDrawer ( props ) {
           <ListItem>
           <Tooltip title="Eaxee Administration" placement="right">
            <Link to="admin">
-      <ListItemButton onClick={() => props.changepage("Eaxee Administration")}>
+      <ListItemButton onClick={() => props.changepage("Administration")}>
           <ListItemIcon>
               <Box
             component="img"
@@ -57,7 +57,7 @@ export default function TemporaryDrawer ( props ) {
             
           </ListItem>
           <Divider />
-          <ListItem onClick={() => props.changepage("Eaxee Impex")}>
+          <ListItem onClick={() => props.changepage("Impex")}>
           <Tooltip title="Eaxee Impex" placement="right">
             <Link to="impex">
             <ListItemButton>
@@ -84,7 +84,7 @@ export default function TemporaryDrawer ( props ) {
           <ListItem>
           <Tooltip title="Eaxee Enterprise Architecture" placement="right">
             <Link to ="enterprise">
-            <ListItemButton onClick={() => props.changepage("Eaxee Enterprise Architecture")}>
+            <ListItemButton onClick={() => props.changepage("Enterprise Architecture")}>
               <ListItemIcon>
               <Box
             component="img"
@@ -108,7 +108,7 @@ export default function TemporaryDrawer ( props ) {
           <ListItem>
           <Tooltip title="Eaxee Organization Portal" placement="right">
           <Link to="portal">
-            <ListItemButton onClick={() => props.changepage("Eaxee Organization Portal")}>
+            <ListItemButton onClick={() => props.changepage("Organization Portal")}>
               <ListItemIcon>
               <Box
             component="img"
