@@ -1,26 +1,16 @@
-import ResizePanel from "react-resize-panel";
+import React from 'react';
+import SplitterLayout from 'react-splitter-layout';
+import 'react-splitter-layout/lib/index.css';
+import EaTabs from './enterprisetabs';
 
-export default function Panel() {
+const Panel = () => {
   return (
-    <div >
-      <div
-        style={{
-          width: "100vw",
-          height: "100vh",
-          border: "1px solid black",
-          display: "flex",
-          flexDirection: "row",
-          overflow: "hidden"
-        }}
-      >
-        <ResizePanel
-          direction="e"
-          style={{ backgroundColor: "black", width: "30%" }}
-        >
-          <div style={{ backgroundColor: "orange", width: "100%" }}>panel</div>
-        </ResizePanel>
-        <div style={{ backgroundColor: "purple", flexGrow: "1" }}>panel</div>
-      </div>
-    </div>
+
+    <SplitterLayout percentage="true" secondaryInitialSize="80">
+        <div><EaTabs /></div>
+        <div>Pane 2</div>
+      </SplitterLayout>
   );
-}
+};
+
+export default Panel

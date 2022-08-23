@@ -41,6 +41,7 @@ export default function ButtonAppBar( props ) {
             sx={{height: 44, marginLeft:"-30px"}}
             alt="Eaxee logo."
             src={Logo}
+            onClick = {() => props.changepage("Home")}
         />   
         </Link>
         <Box sx={{flexGrow:1, marginLeft:"7px", marginTop:"10px"}}>

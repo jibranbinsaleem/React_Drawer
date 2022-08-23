@@ -57,7 +57,7 @@ function App() {
           dir: lang === 'en' ? 'ltr' : 'rtl'
         }} />
 
-      <ButtonAppBar changelang={changelang} text={Page} toggleDrawer = {toggleDrawer}/>
+      <ButtonAppBar changelang={changelang} text={Page} toggleDrawer = {toggleDrawer}  changepage = {changepage}/>
       <TemporaryDrawer lang={lang}  changepage = {changepage} state={drawer} toggleDrawer = {toggleDrawer} />
       
       <Routes>
