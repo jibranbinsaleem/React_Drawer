@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider'
 import Panel from './panel'
 
 import './styles/panel.css'
@@ -55,17 +56,20 @@ export default function EaTabs() {
   };  
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box  style={tabStyle} sx={{ borderBottom: 2, borderColor: 'divider'}} >
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{fontSize:"1px"}}>
-          <Tab label="Objects" {...a11yProps(0)}  sx={{Height:"1%"}}/>
-          <Tab label="Models" {...a11yProps(1)} />
-          <Tab label="Tab3" {...a11yProps(1)}/>
-          <Tab label="Tab4" {...a11yProps(1)} disabled/>
-          <Tab label="Tab5" {...a11yProps(1)} disabled/>
+    <Box>
+      <Box  style={tabStyle} sx={{height:'20%', borderBottom: 1, borderColor: 'divider'}} >
+        <Tabs  variant="fullWidth" value={value} onChange={handleChange} aria-label="basic tabs example" sx={{fontSize:"1px"}}>
+          <Tab label="Objects" {...a11yProps(0)}  sx={{minWidth:0.2, width:20, fontSize:12}}/>
+          <Divider orientation="vertical" />
+          <Tab label="Models" {...a11yProps(1)} sx={{minWidth:0.2, width:20, fontSize:12}}/>
+          <Tab label="Tab3" {...a11yProps(1)} sx={{minWidth:0.2, width:20, fontSize:12}} />
+          <Tab label="Tab4" {...a11yProps(1)} disabled sx={{minWidth:0.2, width:20, fontSize:12}}/>
+          <Tab label="Tab5" {...a11yProps(1)} disabled sx={{minWidth:0.2, width:20, fontSize:12}}/>
           
         </Tabs>
       </Box>
+
+
       <TabPanel value={value} index={0} >
       Item one x
       </TabPanel>
