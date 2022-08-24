@@ -29,7 +29,7 @@ export default function TemporaryDrawer ( props ) {
     >
       <List>
         
-          <ListItem>
+          <ListItem disablePadding>
           <Tooltip title="Eaxee Administration" placement="right">
            <Link to="admin">
       <ListItemButton onClick={() => props.changepage("Administration")}>
@@ -57,7 +57,7 @@ export default function TemporaryDrawer ( props ) {
             
           </ListItem>
           <Divider />
-          <ListItem onClick={() => props.changepage("Impex")}>
+          <ListItem onClick={() => props.changepage("Impex")} disablePadding>
           <Tooltip title="Eaxee Impex" placement="right">
             <Link to="impex">
             <ListItemButton>
@@ -81,7 +81,7 @@ export default function TemporaryDrawer ( props ) {
           </ListItem>
           <Divider />
 
-          <ListItem>
+          <ListItem disablePadding>
           <Tooltip title="Eaxee Enterprise Architecture" placement="right">
             <Link to ="enterprise">
             <ListItemButton onClick={() => props.changepage("Enterprise Architecture")}>
@@ -105,7 +105,7 @@ export default function TemporaryDrawer ( props ) {
           </ListItem>
 
           <Divider />
-          <ListItem>
+          <ListItem disablePadding>
           <Tooltip title="Eaxee Organization Portal" placement="right">
           <Link to="portal">
             <ListItemButton onClick={() => props.changepage("Organization Portal")}>
@@ -140,14 +140,9 @@ export default function TemporaryDrawer ( props ) {
     <div>
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <div className='flex-container'>
-          
-   
-            </div>
-
           <Drawer
             PaperProps={{
-              sx: { background: '#0D7E8A', height: "50%" , marginTop:20, borderRadius: 2, width:"7%"},
+              sx: { background: '#0D7E8A', height: "50%" , marginTop:20, borderRadius: 2, width:"5.8%"},
             }}
             
             open={props.state[anchor]}

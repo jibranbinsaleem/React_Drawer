@@ -31,24 +31,25 @@ export default function ButtonAppBar( props ) {
           <img src = {logo} sx={{maxWidth:1, maxHeight:1, width: 1}}/>
            </Box> */}
 
-         
+   
           <Button onClick={props.toggleDrawer('left', true)} >
-            <MenuIcon style={{fill: "#000000", marginLeft:"-55px" }} fontSize="large" />
+            <MenuIcon style={{fill: "#000000" }} fontSize="large" />
             </Button>
             <Link to="/">
           <Box
             component="img"
-            sx={{height: 44, marginLeft:"-30px"}}
+            sx={{height: 44}}
             alt="Eaxee logo."
             src={Logo}
             onClick = {() => props.changepage("Home")}
         />   
         </Link>
-        <Box sx={{flexGrow:1, marginLeft:"7px", marginTop:"10px"}}>
+        <Box sx={{flexGrow:1}}>
          <Typography sx={{fontSize:"20px"}}> 
           {props.text}
         </Typography>
         </Box>
+
        
 
         <Button 

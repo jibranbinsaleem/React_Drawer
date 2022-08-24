@@ -2,12 +2,12 @@ import React from 'react'
 import BasicTabs from '../assets/muicomponents/tabs'
 
 
-const Ea = () => {
+const Ea = ( props ) => {
   return (
 
 
     <div>
-        <BasicTabs />
+        <BasicTabs lang={props.lang}/>
 
 
         

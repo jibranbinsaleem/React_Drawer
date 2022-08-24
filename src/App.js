@@ -16,15 +16,24 @@ import Logo from "./assets/images/no_bg_logo.png"
   
 function App() {
   
-  const [lang, setLang] = useState("en");
+  var language = 'en'
+  language = window.localStorage.getItem('lang'); 
+
+  console.log(language)
+  const [lang, setLang] = useState('en');
 
   const changelang = () => {
+
     console.log("langchange");
     lang === 'en' ? setLang('ar') : setLang("en");
+
+  
+
+  
   }
 
   const [Page, setPage] = useState("Home");
-
+  
   const changepage = (text) => {
     console.log(text);
     setPage(text)
@@ -62,7 +71,7 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/enterprise" element={<Ea />} />
+        <Route path="/enterprise" element={<Ea lang={lang}/>} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/portal" element={<Portal />} />
         <Route path="/Impex" element={<Impex />} />
