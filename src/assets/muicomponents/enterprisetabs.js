@@ -8,6 +8,7 @@ import Divider from '@mui/material/Divider'
 import Panel from './panel'
 import Tree from './tree'
 import './styles/panel.css'
+import TextField from '@mui/material/TextField';
 
 
 
@@ -57,6 +58,9 @@ export default function EaTabs() {
 
   return (
     <Box>
+      <Box sx={{paddingTop:1}}>
+      <TextField id="outlined-basic" label="Filter" variant="outlined" size="small" fullWidth/> 
+      </Box>
       <Box  style={tabStyle} sx={{height:'100%', borderBottom: 1, borderColor: 'divider'}} >
         <Tabs  variant="fullWidth" value={value} onChange={handleChange} aria-label="basic tabs example" sx={{fontSize:"1px"}}>
           <Tab label="Objects" {...a11yProps(0)}  sx={{minWidth:0.2, width:20, fontSize:12}}/>
@@ -71,6 +75,8 @@ export default function EaTabs() {
 
 
       <TabPanel value={value} index={0} >
+
+      
       <Tree />
       </TabPanel>
       <TabPanel value={value} index={1}>

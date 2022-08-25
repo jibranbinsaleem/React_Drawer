@@ -9,74 +9,91 @@ import { flexbox, maxWidth } from '@mui/system';
 import arabic from "../images/arabic.png"
 import logout from "../images/logout.png"
 import { Link } from "react-router-dom"
-import  '../muicomponents/styles/appbar.css'
+import '../muicomponents/styles/appbar.css'
+import Tooltip from '@mui/material/Tooltip'; 
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function ButtonAppBar( props ) {
- 
-    const toolbarStyle = {
-        minHeight: '44px',
-      };  
+import { useSelector, useDispatch } from 'react-redux';
 
-  return ( 
-    
-      
+
+
+export default function ButtonAppBar(props) {
+  const dispatch = useDispatch();
+  const reducer = useSelector(state => state)
+
+  const toolbarStyle = {
+    minHeight: '44px',
+  };
+
+  const testFunc = () => {
+    dispatch({
+      type: "TOGGLELANG",
+      value: (reducer.language === 'en') ? 'ar' : "en"
+    })
+
+    props.changelang()
+  }
+
+  return (
+
+
     <Box>
       <AppBar position="static" >
+
         <Toolbar
-        sx={{background: '#0D7E8A', height : 30, display: "flexbox", alignContent: 'center'}}
-        style={toolbarStyle}>
+          sx={{ background: '#0D7E8A', height: 30, display: "flexbox", alignContent: 'center' }}
+          style={toolbarStyle}>
 
           {/* <Box sx={{flexGrow:1}} >
           <img src = {logo} sx={{maxWidth:1, maxHeight:1, width: 1}}/>
            </Box> */}
 
-   
+
           <Button onClick={props.toggleDrawer('left', true)} >
-            <MenuIcon style={{fill: "#000000" }} fontSize="large" />
-            </Button>
-            <Link to="/">
+            <MenuIcon style={{ fill: "#000000" }} fontSize="large" />
+          </Button>
+          <Link to="/">
+          <Tooltip title="Home" placement="right">
+            <Box
+              component="img"
+              sx={{ height: 44 }}
+              alt="Eaxee logo."
+              src={Logo}
+              onClick={() => props.changepage("Home")}
+            />
+            </Tooltip>
+          </Link>
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography sx={{ fontSize: "20px" }}>
+              {props.text}
+            </Typography>
+          </Box>
+
+
+
+          <Button onClick={testFunc}>
+            <Box
+              component="img"
+              sx={{
+
+                height: 34,
+
+              }}
+              alt="Change Language"
+              src={arabic}
+            />
+          </Button>
+
           <Box
             component="img"
-            sx={{height: 44}}
-            alt="Eaxee logo."
-            src={Logo}
-            onClick = {() => props.changepage("Home")}
-        />   
-        </Link>
-        <Box sx={{flexGrow:1}}>
-         <Typography sx={{fontSize:"20px"}}> 
-          {props.text}
-        </Typography>
-        </Box>
-
-       
-
-        <Button 
-        onClick={props.changelang}
-        >        
-        <Box
-            component="img"
             sx={{
-            
-            height: 34,
-            
-            }}
-            alt="Change Language"
-            src={arabic}
-        />   
-        </Button>
-        
-          <Box
-            component="img"
-            sx={{
-            
-            height: 34,
-            
+
+              height: 34,
+
             }}
             alt="Logout"
             src={logout}
-        />
+          />
         </Toolbar>
       </AppBar>
     </Box>
