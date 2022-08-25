@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 import React, { Suspense, useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Header from './header';
-
+import AppRouter from './assets/routing/appRouter';
 import { Provider } from 'react-redux';
 import store from './assets/redux/store';
 
@@ -21,48 +21,48 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
 
-  var language = 'en'
-  language = window.localStorage.getItem('lang');
+  // var language = 'en'
+  // language = window.localStorage.getItem('lang');
 
-  console.log(language)
-  const [lang, setLang] = useState('en');
+  // console.log(language)
+  // const [lang, setLang] = useState('en');
   
 
-  const changelang = () => {
+  // const changelang = () => {
 
-    console.log("langchange");
-    lang === 'en' ? setLang('ar') : setLang("en");
-
-
+  //   console.log("langchange");
+  //   lang === 'en' ? setLang('ar') : setLang("en");
 
 
 
 
-  }
 
-  const [Page, setPage] = useState("Home");
 
-  const changepage = (text) => {
-    console.log(text);
-    setPage(text)
-  };
+  // }
 
-  const [drawer, setDrawer] = useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  // const [Page, setPage] = useState("Home");
 
-  const toggleDrawer = (anchor, open) => (event) => {
+  // const changepage = (text) => {
+  //   console.log(text);
+  //   setPage(text)
+  // };
 
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
+  // const [drawer, setDrawer] = useState({
+  //   top: false,
+  //   left: false,
+  //   bottom: false,
+  //   right: false,
+  // });
 
-    setDrawer({ ...drawer, [anchor]: open });
-    console.log(drawer)
-  };
+  // const toggleDrawer = (anchor, open) => (event) => {
+
+  //   if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+  //     return;
+  //   }
+
+  //   setDrawer({ ...drawer, [anchor]: open });
+  //   console.log(drawer)
+  // };
 
 
   // useEffect(() => {
@@ -91,14 +91,7 @@ function App() {
         <TemporaryDrawer lang={lang} changepage={changepage} state={drawer} toggleDrawer={toggleDrawer} /> */}
 
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/enterprise" element={<Ea lang={lang} />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/portal" element={<Portal />} />
-          <Route path="/Impex" element={<Impex />} />
-
-        </Routes>
+        <AppRouter />
       </div>
     </Provider>
 

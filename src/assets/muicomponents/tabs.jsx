@@ -55,12 +55,14 @@ export default function BasicTabs(props) {
   };
 
   const reducerData = useSelector(data => data);
+  console.log(reducerData)
 
 
   useEffect(() => {
     console.log('reducerData', reducerData);
 
     setLang(reducerData.language)
+    console.log(lang)
   }, [reducerData])
 
   return (
@@ -74,7 +76,7 @@ export default function BasicTabs(props) {
       </Box>
       <TabPanel value={value} index={0}>
         {
-          (props.lang == 'en') ?
+          (lang == 'en') ?
             <>
               <Panel lang={lang} />
             </> :

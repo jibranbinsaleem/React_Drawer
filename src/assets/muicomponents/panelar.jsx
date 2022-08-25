@@ -23,6 +23,7 @@ const Panelar = (props) => {
         console.log("arabic:", reducer.language);
         setLang(reducer.language)
     }, [reducer])
+    
     return (
         <SplitterLayout percentage="true" secondaryInitialSize="20" customClassName='splitter'>
 

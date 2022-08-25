@@ -29,9 +29,8 @@ export default function ButtonAppBar(props) {
     dispatch({
       type: "TOGGLELANG",
       value: (reducer.language === 'en') ? 'ar' : "en"
-    })
+    });
 
-    props.changelang()
   }
 
   return (
@@ -71,7 +70,7 @@ export default function ButtonAppBar(props) {
 
 
 
-          <Button onClick={testFunc}>
+          <Button onClick={() => testFunc()}>
             <Box
               component="img"
               sx={{
