@@ -51,7 +51,7 @@ const Panel = (props) => {
 
     <SplitterLayout percentage="true" secondaryInitialSize='80' customClassName='splitter'>
           
-            <div><EaTabs /></div>
+            <div><EaTabs lang={props.lang}/></div>
             <div>{lang}</div>           
 
       </SplitterLayout>

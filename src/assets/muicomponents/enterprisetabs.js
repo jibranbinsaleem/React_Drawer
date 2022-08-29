@@ -45,7 +45,7 @@ function a11yProps(index) {
   };
 }
 
-export default function EaTabs() {
+export default function EaTabs( props ) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -77,7 +77,7 @@ export default function EaTabs() {
       <TabPanel value={value} index={0} >
 
       
-      <Tree />
+      <Tree lang={props.lang}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two x

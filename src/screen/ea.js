@@ -3,7 +3,7 @@ import BasicTabs from '../assets/muicomponents/tabs';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 
-const Ea = () => {
+const Ea = (props) => {
   const [lang, setLang] = useState('')
 
   const reducerData = useSelector(data => data);
@@ -19,7 +19,7 @@ const Ea = () => {
 
 
     <div>
-        <BasicTabs lang={lang}/>
+        <BasicTabs lang={props.lang}/>
 
 
         

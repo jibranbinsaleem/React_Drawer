@@ -48,23 +48,24 @@ function a11yProps(index) {
 
 export default function BasicTabs(props) {
   const [value, setValue] = useState(0);
-  const [lang, setLang] = useState('')
+  // const [lang, setLang] = useState('')
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const reducerData = useSelector(data => data);
-  console.log(reducerData)
+  // const reducerData = useSelector(data => data);
+  // console.log(reducerData)
 
 
-  useEffect(() => {
-    console.log('reducerData', reducerData);
+  // useEffect(() => {
+  //   console.log('reducerData', reducerData);
 
-    setLang(reducerData.language)
-    console.log(lang)
-  }, [reducerData])
+  //   setLang(reducerData.language)
+  //   console.log(lang)
+  // }, [reducerData])
 
+  console.log(props.lang)
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -76,12 +77,13 @@ export default function BasicTabs(props) {
       </Box>
       <TabPanel value={value} index={0}>
         {
-          (lang == 'en') ?
+
+          (props.lang == 'en') ?
             <>
-              <Panel lang={lang} />
+              <Panel lang={props.lang} />
             </> :
             <>
-              <Panelar lang={lang} />
+              <Panelar lang={props.lang} />
             </>
 
         }

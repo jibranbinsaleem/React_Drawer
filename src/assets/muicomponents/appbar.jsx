@@ -10,16 +10,22 @@ import arabic from "../images/arabic.png"
 import logout from "../images/logout.png"
 import { Link } from "react-router-dom"
 import '../muicomponents/styles/appbar.css'
-import Tooltip from '@mui/material/Tooltip'; 
+import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 
 
 export default function ButtonAppBar(props) {
+
+  let { lang, setLang } = props;
+
   const dispatch = useDispatch();
   const reducer = useSelector(state => state)
+
+  // const [lang, setLang] = useState(reducer.language)
 
   const toolbarStyle = {
     minHeight: '44px',
@@ -31,12 +37,19 @@ export default function ButtonAppBar(props) {
       value: (reducer.language === 'en') ? 'ar' : "en"
     });
 
+    setLang(reducer.language)
+
+
+
   }
+
+  // useEffect(() => { }, [])
 
   return (
 
 
     <Box>
+      {/* appBar: {lang} */}
       <AppBar position="static" >
 
         <Toolbar
@@ -52,18 +65,18 @@ export default function ButtonAppBar(props) {
             <MenuIcon style={{ fill: "#000000" }} fontSize="large" />
           </Button>
           <Link to="/">
-          <Tooltip title="Home" placement="right">
-            <Box
-              component="img"
-              sx={{ height: 44 }}
-              alt="Eaxee logo."
-              src={Logo}
-              onClick={() => props.changepage("Home")}
-            />
+            <Tooltip title="Home" placement="right">
+              <Box
+                component="img"
+                sx={{ height: 44 }}
+                alt="Eaxee logo."
+                src={Logo}
+                onClick={() => props.changepage("Home")}
+              />
             </Tooltip>
           </Link>
-          <Box sx={{ flexGrow: 1 }}>
-            <Typography sx={{ fontSize: "20px" }}>
+          <Box sx={{ flexGrow: 1, marginLeft: "10px", marginTop: "8px" }}>
+            <Typography sx={{ fontSize: "24px" }}>
               {props.text}
             </Typography>
           </Box>

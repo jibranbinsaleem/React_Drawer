@@ -28,8 +28,8 @@ const Panelar = (props) => {
         <SplitterLayout percentage="true" secondaryInitialSize="20" customClassName='splitter'>
 
 
-            <div>{lang}</div>
-            <div><EaTabs /></div>
+            <div>{props.lang}</div>
+            <div><EaTabs lang={props.lang}/></div>
 
 
         </SplitterLayout>
