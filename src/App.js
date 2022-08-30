@@ -28,15 +28,6 @@ function App() {
 
   return (
 
-<<<<<<< HEAD
-    // <Provider store={store}>
-    <div>
-      {/* app.js: {reducer.language} */}
-      <Header lang={globalLang} setLang={setGlobalLang} />
-      <AppRouter lang={globalLang} setLang={setGlobalLang} />
-    </div>
-    // </Provider>
-=======
     <Provider store={store}>
       <div>
 {/* 
@@ -49,10 +40,10 @@ function App() {
         <TemporaryDrawer lang={lang} changepage={changepage} state={drawer} toggleDrawer={toggleDrawer} /> */}
 
         <Header />
-        {/* <AppRouter /> */}
+        <AppRouter />
       </div>
     </Provider>
->>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
+
 
 
   );

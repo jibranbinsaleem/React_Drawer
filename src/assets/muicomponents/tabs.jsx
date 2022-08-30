@@ -48,13 +48,10 @@ function a11yProps(index) {
 
 function BasicTabs(props) {
   const [value, setValue] = useState(0);
-<<<<<<< HEAD
-  // const [lang, setLang] = useState('')
-=======
-  // const [lang, setLang] = useState('en')
+
 
   let { language } = props
->>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -65,13 +62,7 @@ function BasicTabs(props) {
 
 
   // useEffect(() => {
-<<<<<<< HEAD
-  //   console.log('reducerData', reducerData);
 
-  //   setLang(reducerData.language)
-  //   console.log(lang)
-  // }, [reducerData])
-=======
 
   //   setLang(reducerData.language)
   //   console.log(lang)
@@ -82,7 +73,7 @@ function BasicTabs(props) {
 
     console.log("tabs", props)
   }, [language])
->>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
+
 
   console.log(props.lang)
   return (
@@ -96,22 +87,13 @@ function BasicTabs(props) {
       </Box>
       <TabPanel value={value} index={0}>
         {
-<<<<<<< HEAD
 
-          (props.lang == 'en') ?
-            <>
-              <Panel lang={props.lang} />
-            </> :
-            <>
-              <Panelar lang={props.lang} />
-=======
           (language == 'en') ?
             <>
               <Panel />
             </> :
             <>
               <Panelar />
->>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
             </>
 
         }

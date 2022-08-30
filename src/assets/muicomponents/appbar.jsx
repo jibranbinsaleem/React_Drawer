@@ -13,19 +13,6 @@ import '../muicomponents/styles/appbar.css'
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 
-<<<<<<< HEAD
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
-
-
-
-export default function ButtonAppBar(props) {
-
-  let { lang, setLang } = props;
-
-  const dispatch = useDispatch();
-  const reducer = useSelector(state => state)
-=======
 import { useSelector, useDispatch, connect } from 'react-redux';
 
 
@@ -35,9 +22,6 @@ function ButtonAppBar(props) {
   // const reducer = useSelector(state => state)
 
   let { setLanguage, language } = props
->>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
-
-  // const [lang, setLang] = useState(reducer.language)
 
   const toolbarStyle = {
     minHeight: '44px',
@@ -46,27 +30,18 @@ function ButtonAppBar(props) {
   const testFunc = () => {
 
     setLanguage(language)
-
-    setLang(reducer.language)
-
-
-
+    console.log(language)
   }
 
-<<<<<<< HEAD
-  // useEffect(() => { }, [])
-=======
   React.useEffect(() => {
     console.log("appbar:", props);
   }, [language])
 
->>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
 
   return (
 
 
     <Box>
-      {/* appBar: {lang} */}
       <AppBar position="static" >
 
         <Toolbar
@@ -92,8 +67,8 @@ function ButtonAppBar(props) {
               />
             </Tooltip>
           </Link>
-          <Box sx={{ flexGrow: 1, marginLeft: "10px", marginTop: "8px" }}>
-            <Typography sx={{ fontSize: "24px" }}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography sx={{ fontSize: "20px" }}>
               {props.text}
             </Typography>
           </Box>
