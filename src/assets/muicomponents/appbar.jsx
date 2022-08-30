@@ -13,6 +13,7 @@ import '../muicomponents/styles/appbar.css'
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 
+<<<<<<< HEAD
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -24,6 +25,17 @@ export default function ButtonAppBar(props) {
 
   const dispatch = useDispatch();
   const reducer = useSelector(state => state)
+=======
+import { useSelector, useDispatch, connect } from 'react-redux';
+
+
+
+function ButtonAppBar(props) {
+  // const dispatch = useDispatch();
+  // const reducer = useSelector(state => state)
+
+  let { setLanguage, language } = props
+>>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
 
   // const [lang, setLang] = useState(reducer.language)
 
@@ -32,10 +44,8 @@ export default function ButtonAppBar(props) {
   };
 
   const testFunc = () => {
-    dispatch({
-      type: "TOGGLELANG",
-      value: (reducer.language === 'en') ? 'ar' : "en"
-    });
+
+    setLanguage(language)
 
     setLang(reducer.language)
 
@@ -43,7 +53,14 @@ export default function ButtonAppBar(props) {
 
   }
 
+<<<<<<< HEAD
   // useEffect(() => { }, [])
+=======
+  React.useEffect(() => {
+    console.log("appbar:", props);
+  }, [language])
+
+>>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
 
   return (
 
@@ -111,3 +128,22 @@ export default function ButtonAppBar(props) {
     </Box>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setLanguage: (lang) => {
+      return dispatch({
+        type: "TOGGLELANG",
+        value: (lang == 'en') ? 'ar' : "en"
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonAppBar)

@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Panel from './panel'
 import Panelar from './panelar'
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, connect } from 'react-redux';
 
 import './styles/panel.css'
 
@@ -46,9 +46,15 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs(props) {
+function BasicTabs(props) {
   const [value, setValue] = useState(0);
+<<<<<<< HEAD
   // const [lang, setLang] = useState('')
+=======
+  // const [lang, setLang] = useState('en')
+
+  let { language } = props
+>>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -59,11 +65,24 @@ export default function BasicTabs(props) {
 
 
   // useEffect(() => {
+<<<<<<< HEAD
   //   console.log('reducerData', reducerData);
 
   //   setLang(reducerData.language)
   //   console.log(lang)
   // }, [reducerData])
+=======
+
+  //   setLang(reducerData.language)
+  //   console.log(lang)
+  // }, [reducerData])
+
+  useEffect(() => {
+
+
+    console.log("tabs", props)
+  }, [language])
+>>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
 
   console.log(props.lang)
   return (
@@ -77,6 +96,7 @@ export default function BasicTabs(props) {
       </Box>
       <TabPanel value={value} index={0}>
         {
+<<<<<<< HEAD
 
           (props.lang == 'en') ?
             <>
@@ -84,6 +104,14 @@ export default function BasicTabs(props) {
             </> :
             <>
               <Panelar lang={props.lang} />
+=======
+          (language == 'en') ?
+            <>
+              <Panel />
+            </> :
+            <>
+              <Panelar />
+>>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
             </>
 
         }
@@ -103,3 +131,23 @@ export default function BasicTabs(props) {
     </Box>
   );
 }
+
+
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setLanguage: (lang) => {
+      return dispatch({
+        type: "TOGGLELANG",
+        value: (lang == 'en') ? 'ar' : "en"
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BasicTabs)

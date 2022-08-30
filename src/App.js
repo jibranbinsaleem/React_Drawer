@@ -28,6 +28,7 @@ function App() {
 
   return (
 
+<<<<<<< HEAD
     // <Provider store={store}>
     <div>
       {/* app.js: {reducer.language} */}
@@ -35,6 +36,23 @@ function App() {
       <AppRouter lang={globalLang} setLang={setGlobalLang} />
     </div>
     // </Provider>
+=======
+    <Provider store={store}>
+      <div>
+{/* 
+        <Helmet htmlAttributes={{
+          lang: lang,
+          dir: lang === 'en' ? 'ltr' : 'rtl'
+        }} />
+
+        <ButtonAppBar changelang={changelang} text={Page} toggleDrawer={toggleDrawer} changepage={changepage} />
+        <TemporaryDrawer lang={lang} changepage={changepage} state={drawer} toggleDrawer={toggleDrawer} /> */}
+
+        <Header />
+        {/* <AppRouter /> */}
+      </div>
+    </Provider>
+>>>>>>> 8372cf607deef61d989233297f8e46fd234c90cb
 
 
   );
