@@ -10,10 +10,8 @@ function App() {
 
   return (
     <Provider store={store}>
-      {/* <div> */}
       <Header />
       <AppRouter />
-      {/* </div> */}
     </Provider>
   );
 }

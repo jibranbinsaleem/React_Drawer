@@ -139,7 +139,7 @@ export default function TemporaryDrawer(props) {
         <React.Fragment key={anchor}>
           <Drawer
             PaperProps={{
-              sx: { background: '#0D7E8A', height: "50%", marginTop: 20, borderRadius: 2, width: "5.8%" },
+              sx: { background: '#0D7E8A', height: "50%", marginTop: 20, borderRadius: 2, width: "5%" },
             }}
 
             open={props.state[anchor]}
