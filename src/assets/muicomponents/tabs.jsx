@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Panel from './panel'
 import Panelar from './panelar'
 
-import { useSelector, useDispatch, connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import './styles/panel.css'
 
@@ -49,24 +48,12 @@ function a11yProps(index) {
 function BasicTabs(props) {
   const [value, setValue] = useState(0);
 
-
   let { language } = props
-
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  // const reducerData = useSelector(data => data);
-  // console.log(reducerData)
-
-
-  // useEffect(() => {
-
-
-  //   setLang(reducerData.language)
-  //   console.log(lang)
-  // }, [reducerData])
 
   useEffect(() => {
 
@@ -74,8 +61,6 @@ function BasicTabs(props) {
     console.log("tabs", props)
   }, [language])
 
-
-  console.log(props.lang)
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -87,7 +72,6 @@ function BasicTabs(props) {
       </Box>
       <TabPanel value={value} index={0}>
         {
-
           (language == 'en') ?
             <>
               <Panel />

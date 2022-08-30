@@ -5,16 +5,17 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     if (action.type == "TOGGLELANG") {
-        console.log(action.value)
 
         return {
             ...state,
             language: action.value
-        
         }
+        // state.language = action.value
 
 
+        // return state
     }
+    console.log('ReducerState', state);
 
     return state;
 }

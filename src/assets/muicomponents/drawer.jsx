@@ -17,7 +17,7 @@ import ea from "../images/EnterpriseArchitecture.svg"
 import { Link } from "react-router-dom"
 import './styles/drawer.css'
 
-export default function TemporaryDrawer ( props ) {
+export default function TemporaryDrawer(props) {
 
   const list = (anchor) => (
     <Box
@@ -25,114 +25,114 @@ export default function TemporaryDrawer ( props ) {
 
       onClick={props.toggleDrawer(anchor, false)}
       onKeyDown={props.toggleDrawer(anchor, false)}
-      
+
     >
       <List>
-        
-          <ListItem disablePadding>
-          <Tooltip title="Eaxee Administration" placement="right">
-           <Link to="admin">
-      <ListItemButton onClick={() => props.changepage("Administration")}>
-          <ListItemIcon>
-              <Box
-            component="img"
-            sx={{
-            
-            height: 33,
-            
-            }}
-            alt="Account management"
-            src={settings}
-            
-            
-        /> 
-        
 
-              </ListItemIcon>
-              
-            </ListItemButton>
+        <ListItem disablePadding>
+          <Tooltip title="Eaxee Administration" placement="right">
+            <Link to="admin">
+              <ListItemButton onClick={() => props.changepage("Administration")}>
+                <ListItemIcon>
+                  <Box
+                    component="img"
+                    sx={{
+
+                      height: 33,
+
+                    }}
+                    alt="Account management"
+                    src={settings}
+
+
+                  />
+
+
+                </ListItemIcon>
+
+              </ListItemButton>
             </Link>
-         
-            </Tooltip>
-            
-          </ListItem>
-          <Divider />
-          <ListItem onClick={() => props.changepage("Impex")} disablePadding>
+
+          </Tooltip>
+
+        </ListItem>
+        <Divider />
+        <ListItem onClick={() => props.changepage("Impex")} disablePadding>
           <Tooltip title="Eaxee Impex" placement="right">
             <Link to="impex">
-            <ListItemButton>
-              <ListItemIcon>
-              <Box
-            component="img"
-            sx={{
-            
-            height: 33,
-            
-            }}
-            alt="Eaxee Impex"
-            src={impex}
-           
-        /> 
-              </ListItemIcon>
-              
-            </ListItemButton>
-            </Link>
-            </Tooltip>
-          </ListItem>
-          <Divider />
+              <ListItemButton>
+                <ListItemIcon>
+                  <Box
+                    component="img"
+                    sx={{
 
-          <ListItem disablePadding>
+                      height: 33,
+
+                    }}
+                    alt="Eaxee Impex"
+                    src={impex}
+
+                  />
+                </ListItemIcon>
+
+              </ListItemButton>
+            </Link>
+          </Tooltip>
+        </ListItem>
+        <Divider />
+
+        <ListItem disablePadding>
           <Tooltip title="Eaxee Enterprise Architecture" placement="right">
-            <Link to ="enterprise">
-            <ListItemButton onClick={() => props.changepage("Enterprise Architecture")}>
-              <ListItemIcon>
-              <Box
-            component="img"
-            sx={{
-            
-            height: 33,
-            
-            }}
-            alt="Eaxee Enterprise Architecture"
-            src={ea}
-            
-        /> 
-              </ListItemIcon>
-              
-            </ListItemButton>
-            </Link>
-            </Tooltip>
-          </ListItem>
+            <Link to="enterprise">
+              <ListItemButton onClick={() => props.changepage("Enterprise Architecture")}>
+                <ListItemIcon>
+                  <Box
+                    component="img"
+                    sx={{
 
-          <Divider />
-          <ListItem disablePadding>
+                      height: 33,
+
+                    }}
+                    alt="Eaxee Enterprise Architecture"
+                    src={ea}
+
+                  />
+                </ListItemIcon>
+
+              </ListItemButton>
+            </Link>
+          </Tooltip>
+        </ListItem>
+
+        <Divider />
+        <ListItem disablePadding>
           <Tooltip title="Eaxee Organization Portal" placement="right">
-          <Link to="portal">
-            <ListItemButton onClick={() => props.changepage("Organization Portal")}>
-              <ListItemIcon>
-              <Box
-            component="img"
-            sx={{
-            
-            height: 33,
-            
-            }}
-            alt="Analysis"
-            src={analysis}
-            
-        /> 
-              </ListItemIcon>
-              
-            </ListItemButton>
-            </Link>
-            </Tooltip>
-          </ListItem>
-          <Divider />
+            <Link to="portal">
+              <ListItemButton onClick={() => props.changepage("Organization Portal")}>
+                <ListItemIcon>
+                  <Box
+                    component="img"
+                    sx={{
 
-          
+                      height: 33,
+
+                    }}
+                    alt="Analysis"
+                    src={analysis}
+
+                  />
+                </ListItemIcon>
+
+              </ListItemButton>
+            </Link>
+          </Tooltip>
+        </ListItem>
+        <Divider />
+
+
       </List>
 
-      
+
     </Box>
   );
 
@@ -142,13 +142,13 @@ export default function TemporaryDrawer ( props ) {
         <React.Fragment key={anchor}>
           <Drawer
             PaperProps={{
-              sx: { background: '#0D7E8A', height: "50%" , marginTop:20, borderRadius: 2, width:"4%"},
+              sx: { background: '#0D7E8A', height: "50%", marginTop: 20, borderRadius: 2, width: "5.8%" },
             }}
-            
+
             open={props.state[anchor]}
 
             onClose={props.toggleDrawer(anchor, false)}
-            anchor = { props.lang === 'en' ? 'left' : 'right' }
+            anchor={props.lang === 'en' ? 'left' : 'right'}
           >
             {list(anchor)}
           </Drawer>
