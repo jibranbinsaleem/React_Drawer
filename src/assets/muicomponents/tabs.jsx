@@ -72,7 +72,7 @@ function BasicTabs(props) {
       </Box>
       <TabPanel value={value} index={0}>
         {
-          (language == 'en') ?
+          (language === 'en') ?
             <>
               <Panel />
             </> :
@@ -110,7 +110,7 @@ const mapDispatchToProps = dispatch => {
     setLanguage: (lang) => {
       return dispatch({
         type: "TOGGLELANG",
-        value: (lang == 'en') ? 'ar' : "en"
+        value: (lang === 'en') ? 'ar' : "en"
       })
     }
   }

@@ -1,42 +1,16 @@
 
 import { Helmet } from 'react-helmet';
-import React, { Suspense, useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import { connect, Provider } from 'react-redux';
-import store from './assets/redux/store';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import TemporaryDrawer from './assets/muicomponents/drawer';
 import ButtonAppBar from './assets/muicomponents/appbar';
-import Logo from "./assets/images/no_bg_logo.png"
-import { useSelector, useDispatch } from 'react-redux';
 
 const Header = (props) => {
 
   let { language } = props
-  // var language = 'en'
-  // language = window.localStorage.getItem('lang');
-
-  // console.log(language)
-  // const [lang, setLang] = useState('en');
-
-
-  // const changelang = () => {
-
-  //   console.log("langchange");
-  //   lang === 'en' ? setLang('ar') : setLang("en");
-  //   console.log(lang)
-  // }
-  // const [lang, setLang] = useState('')
-
-
-  // const reducerData = useSelector(data => data);
-
 
   useEffect(() => {
-    // console.log('reducerData', reducerData);
-
-    // setLang(reducerData.language)
-    // console.log("here", lang)
+ 
   }, [])
 
   const [Page, setPage] = useState("Home");
@@ -87,7 +61,7 @@ const mapDispatchToProps = dispatch => {
     setLanguage: (lang) => {
       return dispatch({
         type: "TOGGLELANG",
-        value: (lang == 'en') ? 'ar' : "en"
+        value: (lang === 'en') ? 'ar' : "en"
       })
     }
   }

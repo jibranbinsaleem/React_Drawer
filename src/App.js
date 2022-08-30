@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Box from '@mui/material/Box';
+
 import Header from './header';
 import AppRouter from './assets/routing/appRouter';
 import { Provider } from 'react-redux';

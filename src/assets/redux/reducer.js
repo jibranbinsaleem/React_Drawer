@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 
 
 export default (state = INITIAL_STATE, action) => {
-    if (action.type == "TOGGLELANG") {
+    if (action.type === "TOGGLELANG") {
 
         return {
             ...state,

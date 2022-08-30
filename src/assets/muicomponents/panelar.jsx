@@ -21,7 +21,7 @@ const Panelar = (props) => {
     }, [language])
 
     return (
-        <SplitterLayout percentage="true" secondaryInitialSize="20" customClassName='splitter'>
+        <SplitterLayout percentage={true} secondaryInitialSize={20} customClassName='splitter'>
 
             <div>EATabsAr: {language}</div>
             <div><EaTabs /></div>
@@ -41,7 +41,7 @@ const mapDispatchToProps = dispatch => {
         setLanguage: (lang) => {
             return dispatch({
                 type: "TOGGLELANG",
-                value: (lang == 'en') ? 'ar' : "en"
+                value: (lang === 'en') ? 'ar' : "en"
             })
         }
     }

@@ -16,7 +16,7 @@ const Panel = (props) => {
 
 
   return (
-    <SplitterLayout percentage="true" secondaryInitialSize='80' customClassName='splitter'>
+    <SplitterLayout percentage={true} secondaryInitialSize={80} customClassName='splitter'>
       <div><EaTabs /></div>
       <div>EaTabs: {language}</div>
     </SplitterLayout>
@@ -34,7 +34,7 @@ const mapDispatchToProps = dispatch => {
     setLanguage: (lang) => {
       return dispatch({
         type: "TOGGLELANG",
-        value: (lang == 'en') ? 'ar' : "en"
+        value: (lang === 'en') ? 'ar' : "en"
       })
     }
   }

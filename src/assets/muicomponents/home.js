@@ -4,7 +4,7 @@ import Logo from '../images/no_bg_logo.png'
 
 const Home = () => {
   return (
-    <img src={Logo}/>
+    <img src={Logo} alt="Eaxee Logo"/>
  
   )
 }

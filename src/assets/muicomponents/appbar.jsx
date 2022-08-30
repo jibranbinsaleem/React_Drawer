@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Logo from "../images/no_bg_logo.png"
-import { flexbox, maxWidth } from '@mui/system';
 import arabic from "../images/arabic.png"
 import logout from "../images/logout.png"
 import { Link } from "react-router-dom"
@@ -13,7 +12,7 @@ import '../muicomponents/styles/appbar.css'
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { useSelector, useDispatch, connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 
 
@@ -67,8 +66,8 @@ function ButtonAppBar(props) {
               />
             </Tooltip>
           </Link>
-          <Box sx={{ flexGrow: 1 }}>
-            <Typography sx={{ fontSize: "20px" }}>
+          <Box sx={{ flexGrow: 1 , marginLeft: "10px", marginTop: "8px"}}>
+            <Typography sx={{ fontSize: "24px" }}>
               {props.text}
             </Typography>
           </Box>
@@ -115,7 +114,7 @@ const mapDispatchToProps = dispatch => {
     setLanguage: (lang) => {
       return dispatch({
         type: "TOGGLELANG",
-        value: (lang == 'en') ? 'ar' : "en"
+        value: (lang === 'en') ? 'ar' : "en"
       })
     }
   }

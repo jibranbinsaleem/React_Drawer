@@ -4,17 +4,19 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import TreeItem from '@mui/lab/TreeItem';
-import { calculateNewValue } from '@testing-library/user-event/dist/utils';
+import { connect } from 'react-redux';
 
-export default function Tree( props ) {
-  let { lang } = props;
+function Tree( props ) {
+
+  let { language } = props
+  console.log(language)
   return (
-    // // <SplitterLayout percentage="true" secondaryInitialSize={(lang == 'en' ? '80' : '20')} customClassName='splitter'>
+    
     <TreeView
       aria-label="file system navigator"
       defaultCollapseIcon={<ExpandMoreIcon />}
 
-      defaultExpandIcon = {(lang == "en" ? <ChevronRightIcon /> : <ChevronLeftIcon sx={{border: '2px solid yellow' }}/>)}
+      defaultExpandIcon = {(language === "en" ? <ChevronRightIcon /> : <ChevronLeftIcon />)}
       sx={{ flexGrow: 1}}
     >
       <TreeItem nodeId="1" label="Applications" >
@@ -29,3 +31,23 @@ export default function Tree( props ) {
     </TreeView>
   );
 }
+
+
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setLanguage: (lang) => {
+      return dispatch({
+        type: "TOGGLELANG",
+        value: (lang === 'en') ? 'ar' : "en"
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tree)

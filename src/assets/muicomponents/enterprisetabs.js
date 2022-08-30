@@ -62,7 +62,7 @@ export default function EaTabs() {
         <TextField id="outlined-basic" label="Filter" variant="outlined" size="small" />
       </Box>
       <Box style={tabStyle} sx={{ height: '100%', borderBottom: 1, borderColor: 'divider' }} >
-        <Tabs variant="fullWidth" value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ fontSize: "1px" }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ fontSize: "1px" }}>
           <Tab label="Objects" {...a11yProps(0)} sx={{ minWidth: 0.2, width: 20, fontSize: 12 }} />
           <Divider orientation="vertical" />
           <Tab label="Models" {...a11yProps(1)} sx={{ minWidth: 0.2, width: 20, fontSize: 12 }} />

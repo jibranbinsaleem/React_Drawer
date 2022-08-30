@@ -34,7 +34,7 @@ const mapDispatchToProps = dispatch => {
     setLanguage: (lang) => {
       return dispatch({
         type: "TOGGLELANG",
-        value: (lang == 'en') ? 'ar' : "en"
+        value: (lang === 'en') ? 'ar' : "en"
       })
     }
   }
