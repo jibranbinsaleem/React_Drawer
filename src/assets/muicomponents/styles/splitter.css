@@ -1,35 +1,8 @@
 .splitter.splitter-layout>.layout-splitter {
    background-color: #0D7E8A;
+   
 }
 
 [dir="rtl"] .splitter-layout:not(.splitter-layout-vertical) {
    flex-direction: row-reverse;
-}
-
-.resize {
-   border: 1px solid black;
-   overflow: auto;
-}
-
-.resize.horizontal {
-   resize: horizontal;
-}
-
-.flex {
-   display: flex;
-   width: 100vw;
-   /* flex-direction: 'row'; */
-   border: 2px solid black;
-
-
-}
-
-.first {
-   width: 50%;
-   border: 2px solid red;
-}
-
-.second {
-   width: 100%;
-   border: 2px solid green;
 }

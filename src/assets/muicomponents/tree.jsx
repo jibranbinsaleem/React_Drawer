@@ -12,10 +12,10 @@ export default function Tree( props ) {
     // // <SplitterLayout percentage="true" secondaryInitialSize={(lang == 'en' ? '80' : '20')} customClassName='splitter'>
     <TreeView
       aria-label="file system navigator"
-      defaultCollapseIcon={<ExpandMoreIcon sx={{border: '2px solid red'}}/>}
+      defaultCollapseIcon={<ExpandMoreIcon />}
 
-      defaultExpandIcon = {(lang == "en" ? <ChevronRightIcon sx={{border: '2px solid' }}/> : <ChevronLeftIcon sx={{border: '2px solid' }}/>)}
-      sx={{ flexGrow: 1, border: '2px solid'}}
+      defaultExpandIcon = {(lang == "en" ? <ChevronRightIcon /> : <ChevronLeftIcon sx={{border: '2px solid yellow' }}/>)}
+      sx={{ flexGrow: 1}}
     >
       <TreeItem nodeId="1" label="Applications" >
         <TreeItem nodeId="2" label="Calendar" />
