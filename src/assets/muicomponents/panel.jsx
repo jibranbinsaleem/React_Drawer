@@ -7,21 +7,22 @@ import '../muicomponents/styles/splitter.css'
 
 
 import { Resizable, ResizableBox } from 'react-resizable';
+import { connect } from 'react-redux';
 
 
 
 const Panel = (props) => {
-//   const [width, setWidth] = useState(200)
-//   const [height, setHeight] = useState(200)
-  let { lang } = props;
+  //   const [width, setWidth] = useState(200)
+  //   const [height, setHeight] = useState(200)
+  let { language } = props;
 
-//   const onResize = (event, { element, size, handle }) => {
-//     setState({ width: size.width, height: size.height });
-//   };
+  //   const onResize = (event, { element, size, handle }) => {
+  //     setState({ width: size.width, height: size.height });
+  //   };
 
-//   useEffect(() => {
-//     console.log("lang", lang);
-//   }, [lang])
+  useEffect(() => {
+    console.log("panel", language);
+  }, [language])
 
 
   return (
@@ -50,15 +51,32 @@ const Panel = (props) => {
 
 
     <SplitterLayout percentage="true" secondaryInitialSize='80' customClassName='splitter'>
-          
-            <div><EaTabs /></div>
-            <div>{lang}</div>           
 
-      </SplitterLayout>
-      
+      <div><EaTabs /></div>
+      <div>EaTabs: {language}</div>
 
-   
+    </SplitterLayout>
+
+
+
   );
-  }
+}
 
-export default Panel;
+const mapStateToProps = state => {
+  return {
+    language: state.language,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setLanguage: (lang) => {
+      return dispatch({
+        type: "TOGGLELANG",
+        value: (lang == 'en') ? 'ar' : "en"
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Panel)

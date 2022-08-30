@@ -91,7 +91,7 @@ function App() {
         <TemporaryDrawer lang={lang} changepage={changepage} state={drawer} toggleDrawer={toggleDrawer} /> */}
 
         <Header />
-        <AppRouter />
+        {/* <AppRouter /> */}
       </div>
     </Provider>
 

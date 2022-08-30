@@ -4,7 +4,7 @@ import 'react-splitter-layout/lib/index.css';
 import EaTabs from './enterprisetabs';
 import '../muicomponents/styles/splitter.css'
 
-import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 
 
@@ -14,29 +14,35 @@ import { Resizable, ResizableBox } from 'react-resizable';
 
 const Panelar = (props) => {
 
-    const reducer = useSelector(state => state)
-    const [lang, setLang] = useState('')
-    // let { lang } = props;
+    let { language } = props;
 
     useEffect(() => {
+        console.log("panelar", language);
+    }, [language])
 
-        console.log("arabic:", reducer.language);
-        setLang(reducer.language)
-    }, [reducer])
-    
     return (
         <SplitterLayout percentage="true" secondaryInitialSize="20" customClassName='splitter'>
-
-
-            <div>{lang}</div>
+            <div>EATabsAr: {language}</div>
             <div><EaTabs /></div>
-
-
         </SplitterLayout>
-
-
-
     );
 }
 
-export default Panelar;
+const mapStateToProps = state => {
+    return {
+        language: state.language
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setLanguage: (lang) => {
+            return dispatch({
+                type: "TOGGLELANG",
+                value: (lang == 'en') ? 'ar' : "en"
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Panelar)

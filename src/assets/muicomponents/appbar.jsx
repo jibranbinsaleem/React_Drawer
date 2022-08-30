@@ -10,28 +10,33 @@ import arabic from "../images/arabic.png"
 import logout from "../images/logout.png"
 import { Link } from "react-router-dom"
 import '../muicomponents/styles/appbar.css'
-import Tooltip from '@mui/material/Tooltip'; 
+import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, connect } from 'react-redux';
 
 
 
-export default function ButtonAppBar(props) {
-  const dispatch = useDispatch();
-  const reducer = useSelector(state => state)
+function ButtonAppBar(props) {
+  // const dispatch = useDispatch();
+  // const reducer = useSelector(state => state)
+
+  let { setLanguage, language } = props
 
   const toolbarStyle = {
     minHeight: '44px',
   };
 
   const testFunc = () => {
-    dispatch({
-      type: "TOGGLELANG",
-      value: (reducer.language === 'en') ? 'ar' : "en"
-    });
+
+    setLanguage(language)
 
   }
+
+  React.useEffect(() => {
+    console.log("appbar:", props);
+  }, [language])
+
 
   return (
 
@@ -52,14 +57,14 @@ export default function ButtonAppBar(props) {
             <MenuIcon style={{ fill: "#000000" }} fontSize="large" />
           </Button>
           <Link to="/">
-          <Tooltip title="Home" placement="right">
-            <Box
-              component="img"
-              sx={{ height: 44 }}
-              alt="Eaxee logo."
-              src={Logo}
-              onClick={() => props.changepage("Home")}
-            />
+            <Tooltip title="Home" placement="right">
+              <Box
+                component="img"
+                sx={{ height: 44 }}
+                alt="Eaxee logo."
+                src={Logo}
+                onClick={() => props.changepage("Home")}
+              />
             </Tooltip>
           </Link>
           <Box sx={{ flexGrow: 1 }}>
@@ -98,3 +103,22 @@ export default function ButtonAppBar(props) {
     </Box>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setLanguage: (lang) => {
+      return dispatch({
+        type: "TOGGLELANG",
+        value: (lang == 'en') ? 'ar' : "en"
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonAppBar)
