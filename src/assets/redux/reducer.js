@@ -11,11 +11,11 @@ export default (state = INITIAL_STATE, action) => {
             language: action.value
         }
         // state.language = action.value
-        // console.log('ReducerState', state);
 
 
         // return state
     }
+    console.log('ReducerState', state);
 
     return state;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import SplitterLayout from 'react-splitter-layout';
 import 'react-splitter-layout/lib/index.css';
 import EaTabs from './enterprisetabs';
@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 
 
-import { Resizable, ResizableBox } from 'react-resizable';
+// import { Resizable, ResizableBox } from 'react-resizable';
 
 
 

@@ -1,31 +1,44 @@
 
 import BasicTabs from '../assets/muicomponents/tabs';
-import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import React, { useEffect, } from 'react';
 
-const Ea = () => {
-  const [lang, setLang] = useState('')
+const Ea = (props) => {
+  // const [lang, setLang] = useState('')
+  let { language } = props
 
-  const reducerData = useSelector(data => data);
 
 
   useEffect(() => {
-    console.log('reducerData', reducerData);
-
-    setLang(reducerData.language)
-  }, [reducerData])
+    console.log('Ea.js', language);
+  }, [language])
 
   return (
 
 
     <div>
-        <BasicTabs lang={lang}/>
-
-
-        
+      <BasicTabs />
     </div>
-  
+
   )
 }
 
-export default Ea
+const mapStateToProps = state => {
+  return {
+    language: state.language
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setLanguage: (lang) => {
+      return dispatch({
+        type: "TOGGLELANG",
+        value: (lang == 'en') ? 'ar' : "en"
+      })
+    }
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Ea)
