@@ -2,10 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider'
-// import Panel from './panel'
 import Tree from './tree'
 import './styles/panel.css'
 import TextField from '@mui/material/TextField';
@@ -24,8 +21,8 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+        <Box sx={{ p: 0 }}>
+         {children}
         </Box>
       )}
     </div>
@@ -59,12 +56,12 @@ export default function EaTabs() {
   return (
     <Box>
       <Box sx={{ paddingTop: 1 }}>
-        <TextField id="outlined-basic" label="Filter" variant="outlined" size="small" fullWidth/>
+        <TextField id="outlined-basic" label="Filter" variant="outlined" size="small"/>
       </Box>
       <Box style={tabStyle} sx={{ height: '100%', borderBottom: 1, borderColor: 'divider' }} >
-        <Tabs variant="fullWidth" value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ fontSize: "1px" }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ fontSize: "1px" }}>
           <Tab label="Objects" {...a11yProps(0)} sx={{ minWidth: 0.2, width: 20, fontSize: 12 }} />
-          <Divider orientation="vertical" />
+          {/* <Divider orientation="vertical" /> */}
           <Tab label="Models" {...a11yProps(1)} sx={{ minWidth: 0.2, width: 20, fontSize: 12 }} />
           <Tab label="Tab3" {...a11yProps(1)} sx={{ minWidth: 0.2, width: 20, fontSize: 12 }} />
           <Tab label="Tab4" {...a11yProps(1)} disabled sx={{ minWidth: 0.2, width: 20, fontSize: 12 }} />
@@ -75,9 +72,9 @@ export default function EaTabs() {
 
 
       <TabPanel value={value} index={0} >
-
-
-        <Tree />
+        
+          <Tree />
+        
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two x

@@ -13,12 +13,23 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { connect } from 'react-redux';
+import AlertDialog from './logout';
 
 
 
 function ButtonAppBar(props) {
   // const dispatch = useDispatch();
   // const reducer = useSelector(state => state)
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   let { setLanguage, language } = props
 
@@ -33,8 +44,10 @@ function ButtonAppBar(props) {
   }
 
   React.useEffect(() => {
-    console.log("appbar:", props);
+    // console.log("appbar:", props);
   }, [language])
+
+
 
 
   return (
@@ -87,6 +100,8 @@ function ButtonAppBar(props) {
             />
           </Button>
 
+          <Button variant="outlined" onClick={handleClickOpen}>
+       
           <Box
             component="img"
             sx={{
@@ -97,6 +112,8 @@ function ButtonAppBar(props) {
             alt="Logout"
             src={logout}
           />
+      </Button>
+      <AlertDialog open={open} handleClose = {handleClose} />
         </Toolbar>
       </AppBar>
     </Box>

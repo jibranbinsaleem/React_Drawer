@@ -11,7 +11,7 @@ const Panel = (props) => {
   let { language } = props;
 
   useEffect(() => {
-    console.log("panel", language);
+    // console.log("panel", language);
   }, [language])
 
 

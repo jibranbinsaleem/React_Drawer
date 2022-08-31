@@ -3,14 +3,14 @@ import BasicTabs from '../assets/muicomponents/tabs';
 import { connect } from 'react-redux';
 import React, { useEffect, } from 'react';
 
-const Ea = (props) => {
+const Enterprise = (props) => {
   // const [lang, setLang] = useState('')
   let { language } = props
 
 
 
   useEffect(() => {
-    console.log('Ea.js', language);
+    // console.log('Ea.js', language);
   }, [language])
 
   return (
@@ -41,4 +41,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Ea)
+export default connect(mapStateToProps, mapDispatchToProps)(Enterprise)

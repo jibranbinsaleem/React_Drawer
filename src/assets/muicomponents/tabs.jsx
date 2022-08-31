@@ -58,7 +58,7 @@ function BasicTabs(props) {
   useEffect(() => {
 
 
-    console.log("tabs", props)
+    // console.log("tabs", props)
   }, [language])
 
   return (

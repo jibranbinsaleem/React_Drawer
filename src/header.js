@@ -16,7 +16,7 @@ const Header = (props) => {
   const [Page, setPage] = useState("Home");
 
   const changepage = (text) => {
-    console.log(text);
+    // console.log(text);
     setPage(text)
   };
 
@@ -34,7 +34,7 @@ const Header = (props) => {
     }
 
     setDrawer({ ...drawer, [anchor]: open });
-    console.log(drawer)
+    // console.log(drawer)
   };
 
   return (

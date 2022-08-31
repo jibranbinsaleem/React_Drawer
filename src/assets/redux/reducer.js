@@ -15,7 +15,7 @@ export default (state = INITIAL_STATE, action) => {
 
         // return state
     }
-    console.log('ReducerState', state);
+    // console.log('ReducerState', state);
 
     return state;
 }
