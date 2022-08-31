@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 function Tree( props ) {
 
-  let { language } = props
+  let { language, theme } = props
   // console.log(language)
   return (
     
@@ -17,7 +17,8 @@ function Tree( props ) {
       defaultCollapseIcon={<ExpandMoreIcon />}
 
       defaultExpandIcon = {(language === "en" ? <ChevronRightIcon /> : <ChevronLeftIcon />)}
-      sx={{ flexGrow: 1}}
+      sx={{ flexGrow: 1, color:(theme === "dark" ? '#ffffffb3': "")}}
+
     >
 
       <TreeItem nodeId="1" label="Applications" >
@@ -41,7 +42,8 @@ function Tree( props ) {
 
 const mapStateToProps = state => {
   return {
-    language: state.language
+    language: state.language,
+    theme: state.theme
   }
 }
 

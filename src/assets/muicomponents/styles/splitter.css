@@ -1,5 +1,18 @@
-.splitter.splitter-layout>.layout-splitter {
+.default.splitter-layout>.layout-splitter {
+
    background-color: #0D7E8A;
+   
+}
+
+.dark.splitter-layout>.layout-splitter {
+   
+   background-color: #373535;
+   
+}
+
+.light.splitter-layout>.layout-splitter {
+   
+   background-color: #D3D3D3;
    
 }
 

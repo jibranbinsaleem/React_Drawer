@@ -1,6 +1,14 @@
 .App {
-  text-align: center;
-  background-color: "#0C0F15";
+
+  background-color: #DFF7FA;
+}
+
+.background-red {
+  background-color: red;
+}
+
+.background-blue {
+  background-color: blue;
 }
 
 .center {
@@ -16,6 +24,7 @@
 
 * {
   overflow: hidden;
+;
   
 }
 

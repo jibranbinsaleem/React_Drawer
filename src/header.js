@@ -7,7 +7,7 @@ import ButtonAppBar from './assets/muicomponents/appbar';
 
 const Header = (props) => {
 
-  let { language } = props
+  let { language, theme} = props
 
   useEffect(() => {
  
@@ -36,13 +36,31 @@ const Header = (props) => {
     setDrawer({ ...drawer, [anchor]: open });
     // console.log(drawer)
   };
+  // console.log(theme)
 
   return (
     <div>
       <Helmet htmlAttributes={{
         lang: language,
         dir: language === 'en' ? 'ltr' : 'rtl'
-      }} />
+      }}>
+      <style>
+        {/* {'body { background-color: #DFF7FA; }'} */}
+      
+      
+      {
+          (theme === 'default') ?
+          'body { background-color: #DFF7FA; }' :
+          (theme === 'dark') ?
+          'body { background-color: #121212; }' :
+          'body { background-color: #ffffff; }'
+
+
+
+
+        }
+      </style>
+      </Helmet>
 
       <ButtonAppBar text={Page} toggleDrawer={toggleDrawer} changepage={changepage} />
       <TemporaryDrawer lang={language} changepage={changepage} state={drawer} toggleDrawer={toggleDrawer} />
@@ -52,7 +70,8 @@ const Header = (props) => {
 
 const mapStateToProps = state => {
   return {
-    language: state.language
+    language: state.language,
+    theme: state.theme
   }
 }
 

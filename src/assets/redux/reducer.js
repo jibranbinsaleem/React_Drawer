@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
     language: 'en',
+    theme: 'default',
 };
 
 

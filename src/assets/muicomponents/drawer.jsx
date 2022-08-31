@@ -13,8 +13,13 @@ import analysis from "../images/analysis.webp"
 import ea from "../images/EnterpriseArchitecture.svg"
 import { Link } from "react-router-dom"
 import './styles/drawer.css'
+import { connect } from 'react-redux'
+import { useTheme } from '@mui/material/styles';
 
-export default function TemporaryDrawer(props) {
+function TemporaryDrawer(props) {
+
+  let { theme } = props;
+  const appTheme = useTheme();
 
   const list = (anchor) => (
     <Box
@@ -139,7 +144,7 @@ export default function TemporaryDrawer(props) {
         <React.Fragment key={anchor}>
           <Drawer
             PaperProps={{
-              sx: { background: '#0D7E8A', height: "50%", marginTop: 20, borderRadius: 2, width: "5%" },
+              sx: { background: (theme === "default" ? `${appTheme.pallete.primary.main}`: theme === 'light'? '#D3D3D3' : ""), height: "50%", marginTop: 20, borderRadius: 2, width: "5%" },
             }}
 
             open={props.state[anchor]}
@@ -154,3 +159,23 @@ export default function TemporaryDrawer(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    language: state.language,
+    theme: state.theme
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setLanguage: (lang) => {
+      return dispatch({
+        type: "TOGGLELANG",
+        value: (lang === 'en') ? 'ar' : "en"
+      })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TemporaryDrawer)

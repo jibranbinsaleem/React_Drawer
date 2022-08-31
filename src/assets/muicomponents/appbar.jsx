@@ -11,7 +11,7 @@ import { Link } from "react-router-dom"
 import '../muicomponents/styles/appbar.css'
 import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import { useTheme } from '@mui/material/styles';
 import { connect } from 'react-redux';
 import AlertDialog from './logout';
 
@@ -31,7 +31,7 @@ function ButtonAppBar(props) {
     setOpen(false);
   };
 
-  let { setLanguage, language } = props
+  let { setLanguage, language , theme } = props
 
   const toolbarStyle = {
     minHeight: '44px',
@@ -47,6 +47,9 @@ function ButtonAppBar(props) {
     // console.log("appbar:", props);
   }, [language])
 
+  const appTheme = useTheme();
+  // console.log(appTheme.pallete.primary.main)
+
 
 
 
@@ -57,7 +60,7 @@ function ButtonAppBar(props) {
       <AppBar position="static" >
 
         <Toolbar
-          sx={{ background: '#0D7E8A', height: 30, display: "flexbox", alignContent: 'center' }}
+          sx={{ background: (theme === "default" ? `${appTheme.pallete.primary.main}`: theme === 'light'? '#D3D3D3' : ""), height: 30, display: "flexbox", alignContent: 'center' }}
           style={toolbarStyle}>
 
           {/* <Box sx={{flexGrow:1}} >
@@ -66,7 +69,7 @@ function ButtonAppBar(props) {
 
 
           <Button onClick={props.toggleDrawer('left', true)} >
-            <MenuIcon style={{ fill: "#000000" }} fontSize="large" />
+            <MenuIcon style={{ fill: (theme === "dark" ? "white": "black") }} fontSize="large" />
           </Button>
           <Link to="/">
             <Tooltip title="Home" placement="right">
@@ -87,7 +90,7 @@ function ButtonAppBar(props) {
 
 
 
-          <Button onClick={() => testFunc()}>
+          <Button >
             <Box
               component="img"
               sx={{
@@ -97,22 +100,23 @@ function ButtonAppBar(props) {
               }}
               alt="Change Language"
               src={arabic}
+              onClick={() => testFunc()}
             />
-          </Button>
-
-          <Button variant="outlined" onClick={handleClickOpen}>
-       
+          </Button >
+          <Button>
           <Box
             component="img"
             sx={{
-
+              
               height: 34,
 
             }}
             alt="Logout"
             src={logout}
+            onClick={handleClickOpen}
           />
-      </Button>
+          </Button>
+   
       <AlertDialog open={open} handleClose = {handleClose} />
         </Toolbar>
       </AppBar>
@@ -122,7 +126,8 @@ function ButtonAppBar(props) {
 
 const mapStateToProps = state => {
   return {
-    language: state.language
+    language: state.language,
+    theme: state.theme
   }
 }
 

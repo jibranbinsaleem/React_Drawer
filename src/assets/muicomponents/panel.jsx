@@ -8,15 +8,16 @@ import { connect } from 'react-redux';
 
 
 const Panel = (props) => {
-  let { language } = props;
+  let { language , theme} = props;
 
   useEffect(() => {
     // console.log("panel", language);
   }, [language])
+  console.log(theme)
 
 
   return (
-    <SplitterLayout percentage={true} secondaryInitialSize={80} customClassName='splitter'>
+    <SplitterLayout percentage={true} secondaryInitialSize={80} customClassName={theme}>
       <div><EaTabs /></div>
       <div>EaTabs: {language}</div>
     </SplitterLayout>
@@ -26,6 +27,7 @@ const Panel = (props) => {
 const mapStateToProps = state => {
   return {
     language: state.language,
+    theme: state.theme
   }
 }
 
