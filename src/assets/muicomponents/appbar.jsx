@@ -83,7 +83,7 @@ function ButtonAppBar(props) {
             </Tooltip>
           </Link>
           <Box sx={{ flexGrow: 1 , marginLeft: "10px", marginTop: "8px"}}>
-            <Typography sx={{ fontSize: "24px" }}>
+            <Typography sx={{ fontSize: "24px" }} color={(theme === "light" ? "black": "white")}>
               {props.text}
             </Typography>
           </Box>
